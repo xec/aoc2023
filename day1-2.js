@@ -10,7 +10,7 @@ const problemInput = "6twodndmhcgxlgbqbqndbbthnngblfgtzh5fouroneightrjp";
 
 let sum = 0;
 
-const numRegex = /(one|two|three|four|five|six|seven|eight|nine|\d)/g;
+const numRegex = /one|two|three|four|five|six|seven|eight|nine|\d/g;
 
 const numMap = {
   one: "1",
@@ -28,23 +28,22 @@ function str2digit(str) {
   return /\d/.test(str) ? str : numMap[str];
 }
 
-input.split("\n").forEach((line) => {
+problemInput.split("\n").forEach(line => {
   let numbers = [],
     found;
 
   // https://stackoverflow.com/questions/14863026/javascript-regex-find-all-possible-matches-even-in-already-captured-matches/14863268#14863268
   while ((found = numRegex.exec(line))) {
     numbers.push(found[0]);
-    numRegex.lastIndex -= found[0].length - 1;
+    numRegex.lastIndex = found.index + 1
   }
 
   const firstNum = str2digit(numbers[0]);
-
   const lastNum = str2digit(numbers.at(-1));
+
   // console.log(line, numbers, firstNum, lastNum)
 
   sum += +(firstNum + lastNum);
-  // console.log("sum", sum)
 });
 
 console.log(sum);
