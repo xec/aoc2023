@@ -23,7 +23,7 @@ const numbersWithCoordinates = [];
 const isSymbolRegex = /[^\d\.]/;
 const numberRegex = /(\d+)/g;
 
-const lines = input.split("\n");
+const lines = exampleInput.split("\n");
 
 lines.forEach((line, rowIndex) => {
   // find symbols and store their coordinates

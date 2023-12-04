@@ -21,7 +21,7 @@ const numbersWithCoordinates = [];
 
 const numberRegex = /(\d+)/g;
 
-const lines = input.split("\n");
+const lines = exampleInput.split("\n");
 
 lines.forEach((line, rowIndex) => {
   // find stars and store their coordinates
